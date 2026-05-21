@@ -11,6 +11,8 @@ var latestLuciAppDownloadUrl = null;
 
 var GITHUB_CACHE_KEY = 'adblock-lean-luci-app-latest';
 var GITHUB_CACHE_TTL = 3600000;
+var STATUS_CACHE_KEY = 'adblock-lean-status-result';
+var STATUS_CACHE_TTL = 60000;
 
 var displayStatusClass = baseclass.extend({
 	showButtons: false,
@@ -140,115 +142,143 @@ var displayStatusClass = baseclass.extend({
 
 		// Call the getStatus() method via RPC, then update the status placeholders with the result
 		var that = this;
-		L.resolveDefault(rpc.getStatus())
-			.then(function (result) {
-				that.statusResult = result;
 
-				var serviceStatus = document.getElementById('service-status');
-				serviceStatus.classList.remove('spinning');
-				switch (result.service_status) {
+		var applyStatusResult = function(result) {
+			that.statusResult = result;
+
+			var serviceStatus = document.getElementById('service-status');
+			serviceStatus.classList.remove('spinning');
+			switch (result.service_status) {
+				case 0:
+					serviceStatus.textContent = _('adblock-lean will autostart on boot');
+					if (that.showButtons) {
+						document.getElementById('disable-button').style.display = 'inline-block';
+					}
+					break;
+				case 1:
+					serviceStatus.textContent = _('adblock-lean will NOT autostart on boot');
+					if (that.showButtons) {
+						document.getElementById('enable-button').style.display = 'inline-block';
+					}
+					break;
+				case 2:
+					serviceStatus.textContent = _('adblock-lean is not installed');
+					break;
+				default:
+					serviceStatus.textContent = _('Unknown');
+					break;
+			}
+
+			if (result.service_status !== 2) {
+				var dnsmasqStatus = document.getElementById('dnsmasq-status');
+				switch (result.dnsmasq_status) {
 					case 0:
-						serviceStatus.textContent = _('adblock-lean will autostart on boot');
+						dnsmasqStatus.textContent = _('dnsmasq is running');
+						break;
+					case 1:
+						dnsmasqStatus.textContent = _('dnsmasq is NOT running');
+						break;
+					case 2:
+						dnsmasqStatus.textContent = _('ERROR: Test domain lookup failed');
+						break;
+					case 3:
+						dnsmasqStatus.textContent = _('ERROR: Test domain resolved to 0.0.0.0');
+						break;
+					default:
+						dnsmasqStatus.textContent = _('Unknown');
+						break;
+				}
+
+				var blocklistStatus = document.getElementById('blocklist-status');
+				switch (result.blocklist_status) {
+					case 0:
+						blocklistStatus.textContent = _('Blocklist is active.  Good line count: %s.  Last updated %d hour(s) ago.')
+							.format(result.blocklist_line_count.toLocaleString(), Math.round(result.blocklist_age_s / 3600.0, 1));
 						if (that.showButtons) {
-							document.getElementById('disable-button').style.display = 'inline-block';
+							document.getElementById('pause-button').style.display = 'inline-block';
+							document.getElementById('stop-button').style.display = 'inline-block';
+							document.getElementById('reload-button').style.display = 'inline-block';
 						}
 						break;
 					case 1:
-						serviceStatus.textContent = _('adblock-lean will NOT autostart on boot');
+						blocklistStatus.textContent = _('Error checking blocklist status, try again in a minute');
+						break;
+					case 2:
+						blocklistStatus.textContent = _('adblock-lean is performing an action: %s').format(result.pid_action);
+						break;
+					case 3:
+						blocklistStatus.textContent = _('Blocklist is NOT active (paused)');
 						if (that.showButtons) {
-							document.getElementById('enable-button').style.display = 'inline-block';
+							document.getElementById('resume-button').style.display = 'inline-block';
+							document.getElementById('stop-button').style.display = 'inline-block';
+						}
+						break;
+					case 4:
+						blocklistStatus.textContent = _('Blocklist is NOT active (stopped)');
+						if (that.showButtons) {
+							document.getElementById('start-button').style.display = 'inline-block';
+						}
+						break;
+					default:
+						blocklistStatus.textContent= _('Unknown');
+						break;
+				}
+
+				var updateStatus = document.getElementById('abl-update-status');
+				switch (result.update_status) {
+					case 0:
+						updateStatus.textContent = _('Up to date');
+						break;
+					case 1:
+						if (result.update_config_format > config.supportedConfigFormat) {
+							updateStatus.textContent = _('An update is available, but it uses a newer config format than the LuCI App supports,\
+								                          so you will need to update the LuCI App before you can install the latest adblock-lean');
+						} else {
+							updateStatus.textContent = _('An update is available');
+						
+							if (that.showButtons) {
+								document.getElementById('update-abl-button').style.display = 'inline-block';
+							}
 						}
 						break;
 					case 2:
-						serviceStatus.textContent = _('adblock-lean is not installed');
+						updateStatus.textContent = _('An error occurred while checking update status (checking adblock-lean status)');
 						break;
 					default:
-						serviceStatus.textContent = _('Unknown');
+						updateStatus.textContent = _('Unknown');
 						break;
 				}
+			}
 
-				if (result.service_status !== 2) {
-					var dnsmasqStatus = document.getElementById('dnsmasq-status');
-					switch (result.dnsmasq_status) {
-						case 0:
-							dnsmasqStatus.textContent = _('dnsmasq is running');
-							break;
-						case 1:
-							dnsmasqStatus.textContent = _('dnsmasq is NOT running');
-							break;
-						case 2:
-							dnsmasqStatus.textContent = _('ERROR: Test domain lookup failed');
-							break;
-						case 3:
-							dnsmasqStatus.textContent = _('ERROR: Test domain resolved to 0.0.0.0');
-							break;
-						default:
-							dnsmasqStatus.textContent = _('Unknown');
-							break;
-					}
+			that.setLuciAppUpdateStatus();
+		};
 
-					var blocklistStatus = document.getElementById('blocklist-status');
-					switch (result.blocklist_status) {
-						case 0:
-							blocklistStatus.textContent = _('Blocklist is active.  Good line count: %s.  Last updated %d hour(s) ago.')
-								.format(result.blocklist_line_count.toLocaleString(), Math.round(result.blocklist_age_s / 3600.0, 1));
-							if (that.showButtons) {
-								document.getElementById('pause-button').style.display = 'inline-block';
-								document.getElementById('stop-button').style.display = 'inline-block';
-								document.getElementById('reload-button').style.display = 'inline-block';
-							}
-							break;
-						case 1:
-							blocklistStatus.textContent = _('Error checking blocklist status, try again in a minute');
-							break;
-						case 2:
-							blocklistStatus.textContent = _('adblock-lean is performing an action: %s').format(result.pid_action);
-							break;
-						case 3:
-							blocklistStatus.textContent = _('Blocklist is NOT active (paused)');
-							if (that.showButtons) {
-								document.getElementById('resume-button').style.display = 'inline-block';
-								document.getElementById('stop-button').style.display = 'inline-block';
-							}
-							break;
-						case 4:
-							blocklistStatus.textContent = _('Blocklist is NOT active (stopped)');
-							if (that.showButtons) {
-								document.getElementById('start-button').style.display = 'inline-block';
-							}
-							break;
-						default:
-							blocklistStatus.textContent= _('Unknown');
-							break;
-					}
-
-					var updateStatus = document.getElementById('abl-update-status');
-					switch (result.update_status) {
-						case 0:
-							updateStatus.textContent = _('Up to date');
-							break;
-						case 1:
-							if (result.update_config_format > config.supportedConfigFormat) {
-								updateStatus.textContent = _('An update is available, but it uses a newer config format than the LuCI App supports,\
-									                          so you will need to update the LuCI App before you can install the latest adblock-lean');
-							} else {
-								updateStatus.textContent = _('An update is available');
-							
-								if (that.showButtons) {
-									document.getElementById('update-abl-button').style.display = 'inline-block';
-								}
-							}
-							break;
-						case 2:
-							updateStatus.textContent = _('An error occurred while checking update status (checking adblock-lean status)');
-							break;
-						default:
-							updateStatus.textContent = _('Unknown');
-							break;
-					}
+		var cachedStatus = null;
+		try {
+			var raw = sessionStorage.getItem(STATUS_CACHE_KEY);
+			if (raw) {
+				var parsed = JSON.parse(raw);
+				if (Date.now() - parsed.timestamp < STATUS_CACHE_TTL) {
+					cachedStatus = parsed.data;
+				} else {
+					sessionStorage.removeItem(STATUS_CACHE_KEY);
 				}
+			}
+		} catch (e) {}
 
-				that.setLuciAppUpdateStatus();
+		if (cachedStatus) {
+			applyStatusResult(cachedStatus);
+		}
+
+		L.resolveDefault(rpc.getStatus())
+			.then(function (result) {
+				try {
+					sessionStorage.setItem(STATUS_CACHE_KEY, JSON.stringify({
+						timestamp: Date.now(),
+						data: result
+					}));
+				} catch (e) {}
+				applyStatusResult(result);
 			}
 		);
 

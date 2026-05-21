@@ -113,10 +113,6 @@ get_status_rpc() {
 	then
 		if [ -z "$1" ]
 		then
-			# Run parse_config to include config check info in the response
-			parse_config "/etc/adblock-lean/config" 2>/dev/null
-			config_status_rpc="$?"
-
 			status
 		fi
 
@@ -161,16 +157,6 @@ get_status_rpc() {
 	json_add_string "pid_action" "$luci_pid_action"
 	json_add_string "errors" "$luci_errors"
 	json_add_string "luci_app_package_info" "$luci_app_package_info"
-	json_add_int "config_status" "$config_status_rpc"
-	json_add_string "bad_conf_format" "$luci_bad_conf_format"
-	json_add_string "conf_fixes" "$luci_conf_fixes"
-	json_add_string "curr_config_format" "$luci_curr_config_format"
-	json_add_string "def_config_format" "$luci_def_config_format"
-	json_add_string "legacy_entries" "$luci_legacy_entries"
-	json_add_string "missing_entries" "$luci_missing_entries"
-	json_add_string "missing_keys" "$luci_missing_keys"
-	json_add_string "unexp_entries" "$luci_unexp_entries"
-	json_add_string "unexp_keys" "$luci_unexp_keys"
 	json_dump
 }
 
