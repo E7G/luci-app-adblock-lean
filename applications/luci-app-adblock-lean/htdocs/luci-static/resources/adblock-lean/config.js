@@ -69,17 +69,13 @@ return L.Class.extend({
 				// Set the hasSupportedConfigFormat flag
 				this.hasSupportedConfigFormat = (this.rawConfig.indexOf('config_format=v' + this.supportedConfigFormat) >= 0)
 
-				// Local config format check (avoids a separate rpc.checkConfig() call when config is OK)
-				var configFormatMatch = this.rawConfig.match(/config_format=v(\d+)/);
-				var configFormat = configFormatMatch ? parseInt(configFormatMatch[1]) : 0;
-				if (configFormat === this.supportedConfigFormat) {
-					// Config format matches supported version, assume OK
-				} else if (configFormat > 0 && configFormat < this.supportedConfigFormat) {
-					this.updateNeeded = true;
-					this.checkConfigResult = await rpc.checkConfig();
-				} else {
-					this.resetNeeded = true;
-					this.checkConfigResult = await rpc.checkConfig();
+				// Call the checkConfig RPC method to see if an update/reset is needed
+				this.checkConfigResult = await rpc.checkConfig();
+				switch (parseInt(this.checkConfigResult.config_status)) {
+					case 0: break; // Config file is OK, so do nothing
+					case 1: this.resetNeeded = true; break;
+					case 2: this.updateNeeded = true; break;
+					default: throw new Error(_('Error validating config file: %s returned an unexpected value (%s)').format('parse_config', this.checkConfigResult.config_status));
 				}
 			}
 		} catch (e) {
