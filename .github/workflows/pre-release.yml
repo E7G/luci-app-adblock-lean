@@ -13,6 +13,8 @@ jobs:
   build:
     name: Build ${{ matrix.arch }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       fail-fast: false
       matrix:
@@ -21,7 +23,7 @@ jobs:
             target: x86-64
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -63,7 +65,7 @@ jobs:
           path: logs/
 
       - name: Update pre-release
-        uses: "marvinpinto/action-automatic-releases@v1.2.1"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
