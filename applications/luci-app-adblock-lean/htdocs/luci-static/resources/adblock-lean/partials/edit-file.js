@@ -53,7 +53,7 @@ var editFileClass = view.extend({
 			E('p', {}, this.instructions),
 			E('p', {},
 				E('textarea', {
-					'style': 'width: 100% !important; padding: 5px; font-family: monospace',
+					'style': 'width: 100% !important; padding: 5px; font-family: monospace; background-color: var(--background-color-high, #fff); color: var(--text-color-high, #333); border: 1px solid var(--border-color-high, #ccc)',
 					'spellcheck': 'false',
 					'wrap': 'off',
 					'rows': 25

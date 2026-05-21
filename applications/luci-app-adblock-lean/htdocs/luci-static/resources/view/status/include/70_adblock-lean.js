@@ -32,7 +32,7 @@ return baseclass.extend({
 
 		// Return a message saying config doesn't exist yet, if it doesn't exist yet
 		if (configFile == '') {
-			return E('p', { 'style': 'color: red;' },
+			return E('p', { 'style': 'color: var(--error-color-high, red);' },
 				_('Your adblock-lean configuration file does not exist.  Click \
 					<strong>Services -> adblock-lean</strong> to configure adblock-lean now.'));
 		}
