@@ -10,380 +10,380 @@ msgstr ""
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/custom_script.js:17
 msgid "%s is only executed upon completion of the %s command."
-msgstr ""
+msgstr "%s 仅在 %s 命令完成时执行。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:84
 msgid "Activate Blocklist"
-msgstr ""
+msgstr "激活拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:81
 msgid "Activating"
-msgstr ""
+msgstr "正在激活"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:41
 msgid "Add new entries:"
-msgstr ""
+msgstr "添加新条目："
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:88
 msgid "Advanced Settings"
-msgstr ""
+msgstr "高级设置"
 
 #: applications/luci-app-adblock-lean/root/usr/share/luci/menu.d/luci-app-adblock-lean.json:23
 msgid "Allowlist"
-msgstr ""
+msgstr "白名单"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:125
 msgid "Allowlist urls"
-msgstr ""
+msgstr "白名单 URL"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:236
 msgid ""
 "An error occurred while checking update status (checking adblock-lean status)"
-msgstr ""
+msgstr "检查更新状态时出错（正在检查 adblock-lean 状态）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:255
 msgid ""
 "An error occurred while checking update status (checking luci-app-adblock-"
 "lean status)"
-msgstr ""
+msgstr "检查更新状态时出错（正在检查 luci-app-adblock-lean 状态）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:287
 msgid ""
 "An error occurred while checking update status (missing current version)"
-msgstr ""
+msgstr "检查更新状态时出错（缺少当前版本）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:271
 msgid "An error occurred while checking update status (missing package info)"
-msgstr ""
+msgstr "检查更新状态时出错（缺少软件包信息）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:228
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:304
 msgid "An update is available"
-msgstr ""
+msgstr "有可用更新"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:225
 msgid ""
 "An update is available, but it uses a newer config format than the LuCI App "
 "supports, so you will need to update the LuCI App before you can install the "
 "latest adblock-lean"
-msgstr ""
+msgstr "有可用更新，但它使用了比 LuCI 应用所支持的更新的配置格式，因此您需要先更新 LuCI 应用，然后才能安装最新的 adblock-lean"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:125
 msgid ""
 "Based on your total memory size of %sMB, the recommended preset of %s has "
 "been selected."
-msgstr ""
+msgstr "根据您的总内存大小 %sMB，已选择推荐的预设 %s。"
 
 #: applications/luci-app-adblock-lean/root/usr/share/luci/menu.d/luci-app-adblock-lean.json:31
 msgid "Blocklist"
-msgstr ""
+msgstr "拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:201
 msgid "Blocklist is NOT active (paused)"
-msgstr ""
+msgstr "拦截列表未激活（已暂停）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:208
 msgid "Blocklist is NOT active (stopped)"
-msgstr ""
+msgstr "拦截列表未激活（已停止）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:186
 msgid "Blocklist is active. Good line count: %s. Last updated %d hour(s) ago."
-msgstr ""
+msgstr "拦截列表已激活。有效行数：%s。上次更新于 %d 小时前。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:42
 msgid "Blocklist status"
-msgstr ""
+msgstr "拦截列表状态"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:255
 msgid "Boot start delay (seconds)"
-msgstr ""
+msgstr "开机启动延迟（秒）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:197
 msgid ""
 "Call custom resport_success() and report_failure() functions when certain "
 "commands complete.<br />See <b>Custom Script</b> tab for more details."
-msgstr ""
+msgstr "当某些命令完成时，调用自定义的 report_success() 和 report_failure() 函数。<br />详情请参阅<b>自定义脚本</b>选项卡。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-software.js:13
 msgid ""
 "Check the status panel above to see whether there are updates for one (or "
 "both) packages, and update as necessary."
-msgstr ""
+msgstr "检查上方的状态面板，查看是否有一个（或两个）软件包有更新，并根据需要进行更新。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:26
 msgid "Click the Update button below the make the following automatic changes:"
-msgstr ""
+msgstr "点击下方的更新按钮以自动执行以下更改："
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:181
 msgid ""
 "Compress final blocklist, intermediate blocklist parts and the backup "
 "blocklist to save memory"
-msgstr ""
+msgstr "压缩最终拦截列表、中间拦截列表部分和备份拦截列表以节省内存"
 
 #: applications/luci-app-adblock-lean/root/usr/share/luci/menu.d/luci-app-adblock-lean.json:47
 msgid "Config"
-msgstr ""
+msgstr "配置"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:34
 msgid ""
 "Config modifications have been saved, reload adblock-lean for changes to "
 "take effect."
-msgstr ""
+msgstr "配置修改已保存，请重新加载 adblock-lean 以使更改生效。"
 
 #: applications/luci-app-adblock-lean/root/usr/share/luci/menu.d/luci-app-adblock-lean.json:39
 msgid "Custom Script"
-msgstr ""
+msgstr "自定义脚本"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:102
 msgid "Deactivate Blocklist"
-msgstr ""
+msgstr "停用拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:99
 msgid "Deactivating"
-msgstr ""
+msgstr "正在停用"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:172
 msgid "Deduplication"
-msgstr ""
+msgstr "去重"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:74
 msgid "Disable Service"
-msgstr ""
+msgstr "禁用服务"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:71
 msgid "Disabling"
-msgstr ""
+msgstr "正在禁用"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:173
 msgid "ERROR: Test domain lookup failed"
-msgstr ""
+msgstr "错误：测试域名查询失败"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:176
 msgid "ERROR: Test domain resolved to 0.0.0.0"
-msgstr ""
+msgstr "错误：测试域名解析为 0.0.0.0"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/create-config.js:15
 msgid ""
 "Either way, you should now <a %s>manually create a config file following the "
 "instructions here</a>."
-msgstr ""
+msgstr "无论哪种情况，您现在都应该<a %s>按照此处的说明手动创建配置文件</a>。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:68
 msgid "Enable Service"
-msgstr ""
+msgstr "启用服务"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:196
 msgid "Enable custom script"
-msgstr ""
+msgstr "启用自定义脚本"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:65
 msgid "Enabling"
-msgstr ""
+msgstr "正在启用"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:195
 msgid "Error checking blocklist status, try again in a minute"
-msgstr ""
+msgstr "检查拦截列表状态时出错，请稍后重试"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:87
 msgid "General Settings"
-msgstr ""
+msgstr "常规设置"
 
 #: applications/luci-app-adblock-lean/root/usr/share/rpcd/acl.d/luci-app-adblock-lean.json:3
 msgid "Grant access to LuCI app adblock-lean"
-msgstr ""
+msgstr "授予访问 LuCI 应用 adblock-lean 的权限"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:97
 msgid "Hagezi blocklists"
-msgstr ""
+msgstr "Hagezi 拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/create-config.js:12
 msgid ""
 "If you installed adblock-lean via this app, a config file should have been "
 "created for you, which means something went wrong and you should <a "
 "%s>create an Issue here</a>."
-msgstr ""
+msgstr "如果您通过此应用安装了 adblock-lean，应该已经为您创建了配置文件，这意味着出了问题，您应该<a %s>在此处创建 Issue</a>。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/config.js:11
 msgid ""
 "In most cases you should make configuration changes via the %s page, but if "
 "for some reason you want to view/edit the raw config file, you can do so "
 "here."
-msgstr ""
+msgstr "在大多数情况下，您应该通过 %s 页面进行配置更改，但如果由于某种原因您想查看/编辑原始配置文件，可以在此处操作。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:100
 msgid "Install adblock-lean"
-msgstr ""
+msgstr "安装 adblock-lean"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:10
 msgid "Installing adblock-lean"
-msgstr ""
+msgstr "正在安装 adblock-lean"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:62
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:72
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:112
 msgid "Large"
-msgstr ""
+msgstr "大型"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:69
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:109
 msgid "Large-Relaxed"
-msgstr ""
+msgstr "大型（宽松）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:207
 msgid "List part failed action"
-msgstr ""
+msgstr "列表部分下载失败时的操作"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:54
 msgid "LuCI App update status"
-msgstr ""
+msgstr "LuCI 应用更新状态"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:219
 msgid "Max download retries"
-msgstr ""
+msgstr "最大下载重试次数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:136
 msgid "Max file size (KB)"
-msgstr ""
+msgstr "最大文件大小（KB）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:148
 msgid "Max total size (KB)"
-msgstr ""
+msgstr "最大总大小（KB）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:220
 msgid "Maximum number of download retries"
-msgstr ""
+msgstr "下载重试的最大次数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:137
 msgid "Maximum size of any individual downloaded blocklist part"
-msgstr ""
+msgstr "单个下载的拦截列表部分的最大大小"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:149
 msgid "Maximum total size of combined, processed blocklist"
-msgstr ""
+msgstr "合并处理后拦截列表的最大总大小"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:55
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:115
 msgid "Medium"
-msgstr ""
+msgstr "中型"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:243
 msgid "Min allowlist part line count"
-msgstr ""
+msgstr "白名单部分最小行数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:231
 msgid "Min blocklist part line count"
-msgstr ""
+msgstr "拦截列表部分最小行数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:160
 msgid "Min good lines"
-msgstr ""
+msgstr "最小有效行数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:41
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:121
 msgid "Mini"
-msgstr ""
+msgstr "迷你"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:161
 msgid "Minimum number of good lines in final postprocessed blocklist"
-msgstr ""
+msgstr "最终后处理拦截列表中的最小有效行数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:232
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:244
 msgid "Mininum number of lines of any individual downloaded part"
-msgstr ""
+msgstr "单个下载部分的最小行数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/config.js:105
 msgid "Must select or provide at least one blocklist"
-msgstr ""
+msgstr "必须选择或提供至少一个拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-software.js:14
 msgid ""
 "NOTE: adblock-lean will continue to function as expected while this "
 "incompatability exists, the only functionality you are missing out on is the "
 "configuration form."
-msgstr ""
+msgstr "注意：当此不兼容性存在时，adblock-lean 将继续正常运行，您唯一无法使用的是配置表单功能。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/create-config.js:17
 msgid "Once you've created a config file, please reload this page."
-msgstr ""
+msgstr "创建配置文件后，请重新加载此页面。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/reset-config.js:26
 msgid "Or to fix it manually, SSH into your router and try executing %s"
-msgstr ""
+msgstr "或者要手动修复，请通过 SSH 连接到您的路由器并尝试执行 %s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:39
 msgid ""
 "Or, if you'd like to manually update your config file, these are the changes "
 "that are needed:"
-msgstr ""
+msgstr "或者，如果您想手动更新配置文件，以下是所需的更改："
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:114
 msgid "Other blocklist urls"
-msgstr ""
+msgstr "其他拦截列表 URL"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/config.js:12
 #: applications/luci-app-adblock-lean/root/usr/share/luci/menu.d/luci-app-adblock-lean.json:15
 msgid "Overview"
-msgstr ""
+msgstr "概览"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:96
 msgid "Pause Blocklist"
-msgstr ""
+msgstr "暂停拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:93
 msgid "Pausing"
-msgstr ""
+msgstr "正在暂停"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/allowlist.js:15
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/blocklist.js:14
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/config.js:14
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/custom_script.js:15
 msgid "Please note"
-msgstr ""
+msgstr "请注意"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:108
 msgid "Reload Blocklist"
-msgstr ""
+msgstr "重新加载拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:105
 msgid "Reloading"
-msgstr ""
+msgstr "正在重新加载"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:40
 msgid "Remove old entries:"
-msgstr ""
+msgstr "移除旧条目："
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/reset-config.js:32
 msgid "Reset Config File"
-msgstr ""
+msgstr "重置配置文件"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/reset-config.js:11
 msgid "Resetting adblock-lean config file"
-msgstr ""
+msgstr "正在重置 adblock-lean 配置文件"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:188
 msgid "Restart dnsmasq"
-msgstr ""
+msgstr "重启 dnsmasq"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:189
 msgid ""
 "Restart dnsmasq if previous blocklist was extracted and before generation of "
 "new blocklist thereby to free up memory during generaiton of new blocklist"
-msgstr ""
+msgstr "如果之前的拦截列表已解压，则在生成新拦截列表之前重启 dnsmasq，从而在生成新拦截列表时释放内存"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:90
 msgid "Resume Blocklist"
-msgstr ""
+msgstr "恢复拦截列表"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:87
 msgid "Resuming"
-msgstr ""
+msgstr "正在恢复"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:36
 msgid ""
 "Select one of the pre-defined blocklist presets, each one intended for "
 "devices with a certain total memory capacity."
-msgstr ""
+msgstr "选择一个预定义的拦截列表预设，每个预设适用于具有特定总内存容量的设备。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:79
 msgid ""
@@ -391,35 +391,35 @@ msgid ""
 "significantly faster (doesn't affect DNS resolution speed). gawk (including "
 "dependencies) may consume around 1MB, so consider unselecting gawk if flash "
 "space is an issue."
-msgstr ""
+msgstr "选择您还想安装的软件包，以显著加快列表处理速度（不影响 DNS 解析速度）。gawk（包括依赖项）可能会占用约 1MB 空间，因此如果闪存空间有限，请考虑取消选择 gawk。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:38
 msgid "Service status"
-msgstr ""
+msgstr "服务状态"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:48
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:118
 msgid "Small"
-msgstr ""
+msgstr "小型"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:256
 msgid "Start delay in seconds when service is started from system boot"
-msgstr ""
+msgstr "从系统启动启动服务时的延迟秒数"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-software.js:11
 msgid ""
 "The currently installed versions of adblock-lean and luci-app-adblock-lean "
 "are not compatable with each other (they do not support the same config "
 "format)."
-msgstr ""
+msgstr "当前安装的 adblock-lean 和 luci-app-adblock-lean 版本互不兼容（它们不支持相同的配置格式）。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/config.js:10
 msgid "This is the adblock-lean config file, stored at %s"
-msgstr ""
+msgstr "这是 adblock-lean 配置文件，存储在 %s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/custom_script.js:10
 msgid "This is the adblock-lean custom script, stored at %s"
-msgstr ""
+msgstr "这是 adblock-lean 自定义脚本，存储在 %s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/allowlist.js:11
 msgid ""
@@ -428,22 +428,22 @@ msgid ""
 "need to access the domain(s), or having to switch to a more permissive "
 "blocklist, you can just list the domain(s) here to ensure they don't get "
 "blocked."
-msgstr ""
+msgstr "如果您订阅的拦截列表屏蔽了您需要的内容，这很有用——您无需在需要访问域名时手动暂停/恢复 adblock-lean，也无需切换到更宽松的拦截列表，只需在此处列出域名即可确保它们不会被拦截。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/blocklist.js:11
 msgid ""
 "This is useful if the blocklist urls you subscribe to miss something you "
 "want to block -- rather than having to switch to a more restrictive "
 "blocklist, you can just list the domain(s) here to ensure they get blocked."
-msgstr ""
+msgstr "如果您订阅的拦截列表遗漏了您想屏蔽的内容，这很有用——您无需切换到更严格的拦截列表，只需在此处列出域名即可确保它们被拦截。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/allowlist.js:10
 msgid "This is your local adblock-lean allowlist, stored at %s"
-msgstr ""
+msgstr "这是您的本地 adblock-lean 白名单，存储在 %s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/blocklist.js:10
 msgid "This is your local adblock-lean blocklist, stored at %s"
-msgstr ""
+msgstr "这是您的本地 adblock-lean 拦截列表，存储在 %s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:208
 msgid ""
@@ -451,111 +451,111 @@ msgid ""
 "couldn't pass validation checks<br /> SKIP - skip failed blocklist file part "
 "and continue blocklist generation<br /> STOP - stop blocklist generation "
 "(and fall back to previous blocklist if available)"
-msgstr ""
+msgstr "此选项适用于下载失败或未通过验证检查的拦截列表/白名单部分<br /> 跳过 - 跳过失败的拦截列表文件部分并继续生成拦截列表<br /> 停止 - 停止生成拦截列表（如果可用则回退到之前的拦截列表）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/custom_script.js:11
 msgid ""
 "This script should define the functions %s and %s, and one of these "
 "functions will be executed when adblock-lean completes the execution of some "
 "commands with the success or failure message passed in first argument."
-msgstr ""
+msgstr "此脚本应定义 %s 和 %s 函数，当 adblock-lean 完成某些命令的执行时，将执行其中一个函数，成功或失败消息将作为第一个参数传入。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/reset-config.js:25
 msgid "To automatically reset it now, click the Reset button below."
-msgstr ""
+msgstr "要立即自动重置，请点击下方的重置按钮。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:29
 msgid ""
 "To install it now review and submit the form below, or <a %s>to install it "
 "manually follow the instructions here</a>."
-msgstr ""
+msgstr "要立即安装，请查看并提交下方的表单，或者<a %s>按照此处的说明手动安装</a>。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/edit-file.js:39
 msgid "Unable to save changes: %s"
-msgstr ""
+msgstr "无法保存更改：%s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:37
 msgid "Unable to save modifications: %s"
-msgstr ""
+msgstr "无法保存修改：%s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:159
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:179
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:214
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:239
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:221
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:310
 msgid "Up to date"
-msgstr ""
+msgstr "已是最新"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:33
 msgid "Update Config File"
-msgstr ""
+msgstr "更新配置文件"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:124
 msgid "Update LuCI App"
-msgstr ""
+msgstr "更新 LuCI 应用"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:118
 msgid "Update adblock-lean"
-msgstr ""
+msgstr "更新 adblock-lean"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:121
 msgid "Updating LuCI app..."
-msgstr ""
+msgstr "正在更新 LuCI 应用..."
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:12
 msgid "Updating adblock-lean config file"
-msgstr ""
+msgstr "正在更新 adblock-lean 配置文件"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:115
 msgid "Updating adblock-lean..."
-msgstr ""
+msgstr "正在更新 adblock-lean..."
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:180
 msgid "Use compression"
-msgstr ""
+msgstr "使用压缩"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:173
 msgid ""
 "Whether to perform sorting and deduplication of entries (usually doesn't "
 "cause much slowdown, uses a bit more memory)"
-msgstr ""
+msgstr "是否对条目进行排序和去重（通常不会造成明显减速，但会使用更多内存）"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:42
 msgid "Wrap values in double-quotes and/or remove inline comments:"
-msgstr ""
+msgstr "将值用双引号包裹和/或移除行内注释："
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/status/include/70_adblock-lean.js:36
 msgid ""
 "Your adblock-lean configuration file does not exist. Click <strong>Services -"
 "> adblock-lean</strong> to configure adblock-lean now."
-msgstr ""
+msgstr "您的 adblock-lean 配置文件不存在。点击<strong>服务 -> adblock-lean</strong>立即配置 adblock-lean。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/edit-file.js:36
 msgid ""
 "Your changes have been saved. Reload adblock-lean for changes to take effect."
-msgstr ""
+msgstr "您的更改已保存。请重新加载 adblock-lean 以使更改生效。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:17
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/status/include/70_adblock-lean.js:8
 #: applications/luci-app-adblock-lean/root/usr/share/luci/menu.d/luci-app-adblock-lean.json:3
 msgid "adblock-lean"
-msgstr ""
+msgstr "adblock-lean"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/reset-config.js:20
 msgid "adblock-lean config error"
-msgstr ""
+msgstr "adblock-lean 配置错误"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/create-config.js:7
 msgid "adblock-lean config missing"
-msgstr ""
+msgstr "adblock-lean 配置缺失"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:21
 msgid "adblock-lean config update needed"
-msgstr ""
+msgstr "adblock-lean 配置需要更新"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:79
 msgid ""
@@ -563,57 +563,57 @@ msgid ""
 "<a style=\"font-weight: bold;\" href=\"https://github.com/lynxthecat/adblock-"
 "lean/blob/master/README.md\" target=\"_blank\" rel=\"noreferrer "
 "noopener\">online documentation</a>"
-msgstr ""
+msgstr "adblock-lean 配置选项。如需更多信息，请查阅<a style=\"font-weight: bold;\" href=\"https://github.com/lynxthecat/adblock-lean/blob/master/README.md\" target=\"_blank\" rel=\"noreferrer noopener\">在线文档</a>"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/create-config.js:11
 msgid "adblock-lean is installed but the config file is missing."
-msgstr ""
+msgstr "adblock-lean 已安装但配置文件缺失。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:156
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:25
 msgid "adblock-lean is not installed"
-msgstr ""
+msgstr "adblock-lean 未安装"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:198
 msgid "adblock-lean is performing an action: %s"
-msgstr ""
+msgstr "adblock-lean 正在执行操作：%s"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-software.js:7
 msgid "adblock-lean software update needed"
-msgstr ""
+msgstr "adblock-lean 软件需要更新"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:50
 msgid "adblock-lean update status"
-msgstr ""
+msgstr "adblock-lean 更新状态"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:150
 msgid "adblock-lean will NOT autostart on boot"
-msgstr ""
+msgstr "adblock-lean 开机时不会自动启动"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:144
 msgid "adblock-lean will autostart on boot"
-msgstr ""
+msgstr "adblock-lean 开机时将自动启动"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/reset-config.js:24
 msgid "adblock-lean's config file has an error."
-msgstr ""
+msgstr "adblock-lean 的配置文件存在错误。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/update-config.js:25
 msgid "adblock-lean's config format has changed."
-msgstr ""
+msgstr "adblock-lean 的配置格式已更改。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/allowlist.js:17
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/blocklist.js:16
 msgid "add exactly one domain name per line."
-msgstr ""
+msgstr "每行仅添加一个域名。"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:126
 msgid "dnsmasq allowlist urls"
-msgstr ""
+msgstr "dnsmasq 白名单 URL"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:115
 msgid "dnsmasq blocklist urls"
-msgstr ""
+msgstr "dnsmasq 拦截列表 URL"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/overview.js:98
 msgid ""
@@ -621,51 +621,51 @@ msgid ""
 "check the <a style=\"font-weight: bold;\" href=\"https://github.com/hagezi/"
 "dns-blocklists/blob/main/README.md\" target=\"_blank\" rel=\"noreferrer "
 "noopener\">online documentation</a>"
-msgstr ""
+msgstr "由 hagezi 提供的 dnsmasq 拦截列表。如需拦截列表信息，请查阅<a style=\"font-weight: bold;\" href=\"https://github.com/hagezi/dns-blocklists/blob/main/README.md\" target=\"_blank\" rel=\"noreferrer noopener\">在线文档</a>"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:170
 msgid "dnsmasq is NOT running"
-msgstr ""
+msgstr "dnsmasq 未运行"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:167
 msgid "dnsmasq is running"
-msgstr ""
+msgstr "dnsmasq 正在运行"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/display-status.js:46
 msgid "dnsmasq status"
-msgstr ""
+msgstr "dnsmasq 状态"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:71
 msgid ""
 "for devices with 1024MB of RAM or more. This preset includes circa 1M "
 "entries and same default blocklist URLs as %s but the max values are more "
 "relaxed and allow for larger fluctuations in downloaded blocklist sizes"
-msgstr ""
+msgstr "适用于具有 1024MB 或更多内存的设备。此预设包含约 100 万条目，使用与 %s 相同的默认拦截列表 URL，但最大值更宽松，允许下载的拦截列表大小有更大的波动"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:50
 msgid ""
 "for devices with 128MB of RAM. Aim for <300k entries. This preset includes "
 "circa 250k entries"
-msgstr ""
+msgstr "适用于具有 128MB 内存的设备。目标为少于 30 万条目。此预设包含约 25 万条目"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:57
 msgid ""
 "for devices with 256MB of RAM. Aim for <600k entries. This preset includes "
 "circa 450k entries"
-msgstr ""
+msgstr "适用于具有 256MB 内存的设备。目标为少于 60 万条目。此预设包含约 45 万条目"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:64
 msgid "for devices with 512MB of RAM. This preset includes circa 1M entries"
-msgstr ""
+msgstr "适用于具有 512MB 内存的设备。此预设包含约 100 万条目"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/install-abl.js:43
 msgid ""
 "for devices with 64MB of RAM. Aim for <100k entries. This preset includes "
 "circa 85k entries"
-msgstr ""
+msgstr "适用于具有 64MB 内存的设备。目标为少于 10 万条目。此预设包含约 8.5 万条目"
 
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/view/adblock-lean/config.js:16
 msgid ""
 "you should not modify %s or %s as the Allowlist and Blocklist tabs will only "
 "work with the default paths."
-msgstr ""
+msgstr "您不应修改 %s 或 %s，因为白名单和拦截列表选项卡仅适用于默认路径。"

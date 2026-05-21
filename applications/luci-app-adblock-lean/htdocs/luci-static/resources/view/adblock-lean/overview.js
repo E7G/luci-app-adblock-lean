@@ -39,30 +39,30 @@ return view.extend({
 	},
 
 	render: async function () {
-		// Check if adblock-lean is installed, and if not, display the install view
-		try {
-			await fs.stat('/etc/init.d/adblock-lean')
-		} catch (e) {
-			if (e.name === 'NotFoundError') {
+		// Run install check and config load in parallel to speed up page rendering
+		var statPromise = fs.stat('/etc/init.d/adblock-lean').catch(e => e);
+		var configPromise = config.load().catch(e => e);
+		var statResult = await statPromise;
+
+		if (statResult instanceof Error) {
+			if (statResult.name === 'NotFoundError') {
 				this.handleSave = null;
 				return partials.renderInstallAbl();
-			} else if (e.name === 'PermissionError') {
+			} else if (statResult.name === 'PermissionError') {
 				this.handleSave = null;
 				return partials.renderRebootRouter();
 			} else {
-				throw e;
+				throw statResult;
 			}
 		}
 
-		// Check if adblock-lean's config file exists, and if not, display the config-missing view
-		try {
-			await config.load();
-		} catch (e) {
-			if (e.name === 'RPCError') {
+		var configResult = await configPromise;
+		if (configResult instanceof Error) {
+			if (configResult.name === 'RPCError') {
 				this.handleSave = null;
 				return partials.renderRebootRouter();
 			} else {
-				throw e;
+				throw configResult;
 			}
 		}
 		if (!config.loaded) {

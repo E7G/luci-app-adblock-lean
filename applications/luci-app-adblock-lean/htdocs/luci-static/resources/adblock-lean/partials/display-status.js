@@ -9,6 +9,9 @@
 //       This is a hacky workaround, so should try to find a better solution later
 var latestLuciAppDownloadUrl = null;
 
+var GITHUB_CACHE_KEY = 'adblock-lean-luci-app-latest';
+var GITHUB_CACHE_TTL = 3600000;
+
 var displayStatusClass = baseclass.extend({
 	showButtons: false,
 	statusResult: null,
@@ -249,16 +252,50 @@ var displayStatusClass = baseclass.extend({
 			}
 		);
 
-		// Get the latest luci-app-adblock-lean release details
-		L.get('https://api.github.com/repos/rickparrish/luci-app-adblock-lean/releases/tags/latest', '', function(xhr, data) {
-			if (data) {
-				that.latestLuciAppResult = data;
-				that.setLuciAppUpdateStatus();
-			} else {
-				var updateStatus = document.getElementById('luci-app-update-status');
-				updateStatus.textContent = _('An error occurred while checking update status (checking luci-app-adblock-lean status)');
+		var cachedGithubData = null;
+		try {
+			var cached = sessionStorage.getItem(GITHUB_CACHE_KEY);
+			if (cached) {
+				var parsed = JSON.parse(cached);
+				if (Date.now() - parsed.timestamp < GITHUB_CACHE_TTL) {
+					cachedGithubData = parsed.data;
+				} else {
+					sessionStorage.removeItem(GITHUB_CACHE_KEY);
+				}
 			}
-		});
+		} catch (e) {}
+
+		if (cachedGithubData) {
+			that.latestLuciAppResult = cachedGithubData;
+			that.setLuciAppUpdateStatus();
+		} else {
+			var luciAppUpdateEl = document.getElementById('luci-app-update-status');
+			var githubTimedOut = false;
+			var githubTimeout = setTimeout(function() {
+				githubTimedOut = true;
+				if (luciAppUpdateEl && (!luciAppUpdateEl.textContent || luciAppUpdateEl.textContent === '-' || luciAppUpdateEl.textContent === '\xa0')) {
+					luciAppUpdateEl.textContent = _('An error occurred while checking update status (checking luci-app-adblock-lean status)');
+				}
+			}, 15000);
+
+			L.get('https://api.github.com/repos/rickparrish/luci-app-adblock-lean/releases/tags/latest', '', function(xhr, data) {
+				clearTimeout(githubTimeout);
+				if (data && !githubTimedOut) {
+					try {
+						sessionStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify({
+							timestamp: Date.now(),
+							data: data
+						}));
+					} catch (e) {}
+					that.latestLuciAppResult = data;
+					that.setLuciAppUpdateStatus();
+				} else if (!githubTimedOut) {
+					if (luciAppUpdateEl) {
+						luciAppUpdateEl.textContent = _('An error occurred while checking update status (checking luci-app-adblock-lean status)');
+					}
+				}
+			});
+		}
 
 		return result;
 	},
