@@ -8,6 +8,15 @@ Source for [luci-app-banip](https://github.com/openwrt/luci/tree/openwrt-23.05/a
 
 Source for [luci-app-adblock-fast](https://github.com/openwrt/luci/tree/master/applications/luci-app-adblock-fast) was also used as a reference for the RPC-portion of this app.
 
+> **Note:** This repository is a fork of [rickparrish/luci-app-adblock-lean](https://github.com/rickparrish/luci-app-adblock-lean). The following modifications have been made in this fork:
+>
+> - **Performance & Caching:** Optimized config check logic to reduce unnecessary RPC calls. Added RPC result caching on the frontend status page and parallelized installation checks with config loading. GitHub update checks now use `sessionStorage` caching with timeout handling.
+> - **UI/UX Improvements:** Replaced hardcoded color values with OpenWrt theme variables for better dark/light mode compatibility. Optimized text area styling in the config editor to adapt to theme variables. Wrapped status update functions in `requestAnimationFrame` for smoother rendering.
+> - **Mirror Configuration:** Added download mirror options for Hagezi, OISD, and Steven Black blocklists to improve accessibility.
+> - **Config Format Updates:** Updated config format to version 11, refactored config key names to match new naming conventions, and added backward compatibility for legacy config keys.
+> - **CI/CD Updates:** Upgraded GitHub Actions (`actions/checkout` v3 → v4), added write content permissions for pre-release workflows, and updated auto-release actions to the latest versions.
+> - **Translations:** Added and improved Simplified Chinese (`zh_Hans`) translations.
+
 # Supported Configurations
 
 The latest release of luci-app-adblock-lean is NOT compatable with the latest adblock-lean (0.8 at the time of this writing).  To continue using luci-app-adblock-lean you will need to stay on adblock-lean 0.7.4.1.  If you've upgraded to a newer version of adblock-lean, you can revert to this version using the command `/etc/init.d/adblock-lean update -v v0.7.4.1`.
