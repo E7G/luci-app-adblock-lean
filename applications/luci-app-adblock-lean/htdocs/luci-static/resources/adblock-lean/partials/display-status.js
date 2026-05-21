@@ -267,7 +267,7 @@ var displayStatusClass = baseclass.extend({
 		} catch (e) {}
 
 		if (cachedStatus) {
-			applyStatusResult(cachedStatus);
+			requestAnimationFrame(function() { applyStatusResult(cachedStatus); });
 		}
 
 		L.resolveDefault(rpc.getStatus())
@@ -297,7 +297,7 @@ var displayStatusClass = baseclass.extend({
 
 		if (cachedGithubData) {
 			that.latestLuciAppResult = cachedGithubData;
-			that.setLuciAppUpdateStatus();
+			requestAnimationFrame(function() { that.setLuciAppUpdateStatus(); });
 		} else {
 			var luciAppUpdateEl = document.getElementById('luci-app-update-status');
 			var githubTimedOut = false;
