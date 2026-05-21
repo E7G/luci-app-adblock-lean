@@ -196,6 +196,24 @@ msgstr "授予访问 LuCI 应用 adblock-lean 的权限"
 msgid "Hagezi blocklists"
 msgstr "Hagezi 拦截列表"
 
+msgid "Hagezi mirror"
+msgstr "Hagezi 镜像"
+
+msgid "Default download mirror for Hagezi blocklists"
+msgstr "Hagezi 拦截列表的默认下载镜像"
+
+msgid "OISD mirror"
+msgstr "OISD 镜像"
+
+msgid "Default download mirror for OISD blocklists"
+msgstr "OISD 拦截列表的默认下载镜像"
+
+msgid "Steven Black mirror"
+msgstr "Steven Black 镜像"
+
+msgid "Default download mirror for Steven Black blocklists"
+msgstr "Steven Black 拦截列表的默认下载镜像"
+
 #: applications/luci-app-adblock-lean/htdocs/luci-static/resources/adblock-lean/partials/create-config.js:12
 msgid ""
 "If you installed adblock-lean via this app, a config file should have been "

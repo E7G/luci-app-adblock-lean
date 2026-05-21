@@ -53,7 +53,8 @@ var editFileClass = view.extend({
 			E('p', {}, this.instructions),
 			E('p', {},
 				E('textarea', {
-					'style': 'width: 100% !important; padding: 5px; font-family: monospace; background-color: var(--background-color-high, var(--background-color, Field)); color: var(--text-color-high, var(--text-color, FieldText)); border: 1px solid var(--border-color-high, var(--border-color, #ccc))',
+					'class': 'cbi-input-textarea',
+					'style': 'width: 100% !important; font-family: monospace',
 					'spellcheck': 'false',
 					'wrap': 'off',
 					'rows': 25

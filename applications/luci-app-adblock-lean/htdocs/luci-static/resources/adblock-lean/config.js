@@ -11,7 +11,7 @@ return L.Class.extend({
 	loaded: false,
 	rawConfig: null,
 	resetNeeded: false,
-	supportedConfigFormat: 10,
+	supportedConfigFormat: 11,
 	updateNeeded: false,
 
 	load: async function () {
@@ -38,25 +38,47 @@ return L.Class.extend({
 					// using Array.prototype.reduce
 					.reduce((acc, [key, value]) => (acc[key] = value, acc), {});
 		
-				// *_urls need to be an array, not a space-separated string
-				result.blocklist_urls = result.blocklist_urls ? result.blocklist_urls.split(' ') : [];
-				result.blocklist_ipv4_urls = result.blocklist_ipv4_urls ? result.blocklist_ipv4_urls.split(' ') : [];
-				result.allowlist_urls = result.allowlist_urls ? result.allowlist_urls.split(' ') : [];
-				result.dnsmasq_blocklist_urls = result.dnsmasq_blocklist_urls ? result.dnsmasq_blocklist_urls.split(' ') : [];
-				result.dnsmasq_blocklist_ipv4_urls = result.dnsmasq_blocklist_ipv4_urls ? result.dnsmasq_blocklist_ipv4_urls.split(' ') : [];
-				result.dnsmasq_allowlist_urls = result.dnsmasq_allowlist_urls ? result.dnsmasq_allowlist_urls.split(' ') : [];
+				// *_lists need to be an array, not a space-separated string
+				// v11 key names (preferred)
+				result.raw_block_lists = result.raw_block_lists ? result.raw_block_lists.split(' ') : [];
+				result.raw_allow_lists = result.raw_allow_lists ? result.raw_allow_lists.split(' ') : [];
+				result.raw_ipv4_block_lists = result.raw_ipv4_block_lists ? result.raw_ipv4_block_lists.split(' ') : [];
+				result.dnsmasq_block_lists = result.dnsmasq_block_lists ? result.dnsmasq_block_lists.split(' ') : [];
+				result.dnsmasq_ipv4_block_lists = result.dnsmasq_ipv4_block_lists ? result.dnsmasq_ipv4_block_lists.split(' ') : [];
+				result.dnsmasq_allow_lists = result.dnsmasq_allow_lists ? result.dnsmasq_allow_lists.split(' ') : [];
+				result.hosts_block_lists = result.hosts_block_lists ? result.hosts_block_lists.split(' ') : [];
 
-				// We have a friendly Hagezi Blocklists multi-select, so we need to split those in blocklist_urls into hagezi_blocklists
+				// v10 legacy key names (fallback if v11 keys are empty)
+				var legacy_blocklist_urls = result.blocklist_urls ? result.blocklist_urls.split(' ') : [];
+				var legacy_blocklist_ipv4_urls = result.blocklist_ipv4_urls ? result.blocklist_ipv4_urls.split(' ') : [];
+				var legacy_allowlist_urls = result.allowlist_urls ? result.allowlist_urls.split(' ') : [];
+				var legacy_dnsmasq_blocklist_urls = result.dnsmasq_blocklist_urls ? result.dnsmasq_blocklist_urls.split(' ') : [];
+				var legacy_dnsmasq_blocklist_ipv4_urls = result.dnsmasq_blocklist_ipv4_urls ? result.dnsmasq_blocklist_ipv4_urls.split(' ') : [];
+				var legacy_dnsmasq_allowlist_urls = result.dnsmasq_allowlist_urls ? result.dnsmasq_allowlist_urls.split(' ') : [];
+
+				if (result.raw_block_lists.length === 0 && legacy_blocklist_urls.length > 0) result.raw_block_lists = legacy_blocklist_urls;
+				if (result.raw_allow_lists.length === 0 && legacy_allowlist_urls.length > 0) result.raw_allow_lists = legacy_allowlist_urls;
+				if (result.raw_ipv4_block_lists.length === 0 && legacy_blocklist_ipv4_urls.length > 0) result.raw_ipv4_block_lists = legacy_blocklist_ipv4_urls;
+				if (result.dnsmasq_block_lists.length === 0 && legacy_dnsmasq_blocklist_urls.length > 0) result.dnsmasq_block_lists = legacy_dnsmasq_blocklist_urls;
+				if (result.dnsmasq_ipv4_block_lists.length === 0 && legacy_dnsmasq_blocklist_ipv4_urls.length > 0) result.dnsmasq_ipv4_block_lists = legacy_dnsmasq_blocklist_ipv4_urls;
+				if (result.dnsmasq_allow_lists.length === 0 && legacy_dnsmasq_allowlist_urls.length > 0) result.dnsmasq_allow_lists = legacy_dnsmasq_allowlist_urls;
+
+				// v10 legacy: min_blocklist_ipv4_part_line_count → min_ipv4_blocklist_part_line_count
+				if (!result.min_ipv4_blocklist_part_line_count && result.min_blocklist_ipv4_part_line_count) {
+					result.min_ipv4_blocklist_part_line_count = result.min_blocklist_ipv4_part_line_count;
+				}
+
+				// We have a friendly Hagezi Blocklists multi-select, so we need to split those in raw_block_lists into hagezi_blocklists
 				result.hagezi_blocklists = [];
 				var nonHageziBlocklists = [];
-				for (var i = 0; i < result.blocklist_urls.length; i++) {
-					if (result.blocklist_urls[i].startsWith(hagezi.baseUrl)) {
-						result.hagezi_blocklists.push(result.blocklist_urls[i]);
+				for (var i = 0; i < result.raw_block_lists.length; i++) {
+					if (result.raw_block_lists[i].startsWith(hagezi.baseUrl)) {
+						result.hagezi_blocklists.push(result.raw_block_lists[i]);
 					} else {
-						nonHageziBlocklists.push(result.blocklist_urls[i]);
+						nonHageziBlocklists.push(result.raw_block_lists[i]);
 					}
 				}
-				result.blocklist_urls = nonHageziBlocklists;
+				result.raw_block_lists = nonHageziBlocklists;
 			
 				// custom_script needs to be mapped to enable_custom_script
 				if (result.custom_script) {
@@ -96,9 +118,9 @@ return L.Class.extend({
 				combined_blocklist_urls.push(data.hagezi_blocklists[i]);
 			}
 		}
-		if (data.blocklist_urls) {
-			for (var i = 0; i < data.blocklist_urls.length; i++) {
-				combined_blocklist_urls.push(data.blocklist_urls[i]);
+		if (data.raw_block_lists) {
+			for (var i = 0; i < data.raw_block_lists.length; i++) {
+				combined_blocklist_urls.push(data.raw_block_lists[i]);
 			}
 		}
 
@@ -131,14 +153,17 @@ return L.Class.extend({
 whitelist_mode="' + data.whitelist_mode + '"\n\
 \n\
 # One or more *raw domain* format blocklist/ipv4 blocklist/allowlist URLs and/or short list identifiers separated by spaces\n\
-blocklist_urls="' + combined_blocklist_urls.join(' ') + '"\n\
-blocklist_ipv4_urls="' + (data.blocklist_ipv4_urls ?? []).join(' ') + '"\n\
-allowlist_urls="' + (data.allowlist_urls ?? []).join(' ') + '"\n\
+raw_block_lists="' + combined_blocklist_urls.join(' ') + '"\n\
+raw_allow_lists="' + (data.raw_allow_lists ?? []).join(' ') + '"\n\
+raw_ipv4_block_lists="' + (data.raw_ipv4_block_lists ?? []).join(' ') + '"\n\
 \n\
-# One or more *dnsmasq format* domain blocklist/ipv4 blocklist/allowlist URLs separated by spaces\n\
-dnsmasq_blocklist_urls="' + (data.dnsmasq_blocklist_urls ?? []).join(' ') + '"\n\
-dnsmasq_blocklist_ipv4_urls="' + (data.dnsmasq_blocklist_ipv4_urls ?? []).join(' ') + '"\n\
-dnsmasq_allowlist_urls="' + (data.dnsmasq_allowlist_urls ?? []).join(' ') + '"\n\
+# One or more *dnsmasq* format domain blocklist/ipv4 blocklist/allowlist URLs separated by spaces\n\
+dnsmasq_block_lists="' + (data.dnsmasq_block_lists ?? []).join(' ') + '"\n\
+dnsmasq_ipv4_block_lists="' + (data.dnsmasq_ipv4_block_lists ?? []).join(' ') + '"\n\
+dnsmasq_allow_lists="' + (data.dnsmasq_allow_lists ?? []).join(' ') + '"\n\
+\n\
+# One or more *hosts* format blocklist URLs and/or short list identifiers separated by spaces\n\
+hosts_block_lists="' + (data.hosts_block_lists ?? []).join(' ') + '"\n\
 \n\
 # Path to optional local *raw domain* allowlist/blocklist files in the form:\n\
 # site1.com\n\
@@ -162,12 +187,20 @@ list_part_failed_action="' + data.list_part_failed_action + '"\n\
 # Maximum number of download retries\n\
 max_download_retries="' + data.max_download_retries + '"\n\
 \n\
+# Default download mirrors.\n\
+# Hagezi mirror: \'github\' or \'gitlab\'\n\
+hagezi_default_mirror="' + (data.hagezi_default_mirror || 'github') + '"\n\
+# oisd mirror: \'oisd\' or \'github\'\n\
+oisd_default_mirror="' + (data.oisd_default_mirror || 'oisd') + '"\n\
+# Steven Black mirror: \'github\' or \'sbc_io\' for sbc.io\n\
+stevenblack_default_mirror="' + (data.stevenblack_default_mirror || 'github') + '"\n\
+\n\
 # Minimum number of good lines in final postprocessed blocklist\n\
 min_good_line_count="' + data.min_good_line_count + '"\n\
 \n\
 # Mininum number of lines of any individual downloaded part\n\
 min_blocklist_part_line_count="' + data.min_blocklist_part_line_count + '"\n\
-min_blocklist_ipv4_part_line_count="' + data.min_blocklist_ipv4_part_line_count + '"\n\
+min_ipv4_blocklist_part_line_count="' + data.min_ipv4_blocklist_part_line_count + '"\n\
 min_allowlist_part_line_count="' + data.min_allowlist_part_line_count + '"\n\
 \n\
 # Maximum size of any individual downloaded blocklist part\n\

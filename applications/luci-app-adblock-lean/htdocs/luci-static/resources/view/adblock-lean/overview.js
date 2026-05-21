@@ -120,7 +120,7 @@ return view.extend({
 		o = s.taboption(
 			'general',
 			form.DynamicList,
-			'blocklist_urls',
+			'raw_block_lists',
 			_('Other blocklist urls'),
 			_('dnsmasq blocklist urls')
 		);
@@ -131,7 +131,7 @@ return view.extend({
 		o = s.taboption(
 			'general',
 			form.DynamicList,
-			'allowlist_urls',
+			'raw_allow_lists',
 			_('Allowlist urls'),
 			_('dnsmasq allowlist urls')
 		);
@@ -235,6 +235,36 @@ return view.extend({
 		o.optional = false;
 		o.retain = true;
 		o.rmempty = false;
+
+		o = s.taboption(
+			'advanced',
+			form.ListValue,
+			'hagezi_default_mirror',
+			_('Hagezi mirror'),
+			_('Default download mirror for Hagezi blocklists')
+		);
+		o.value('github');
+		o.value('gitlab');
+
+		o = s.taboption(
+			'advanced',
+			form.ListValue,
+			'oisd_default_mirror',
+			_('OISD mirror'),
+			_('Default download mirror for OISD blocklists')
+		);
+		o.value('oisd');
+		o.value('github');
+
+		o = s.taboption(
+			'advanced',
+			form.ListValue,
+			'stevenblack_default_mirror',
+			_('Steven Black mirror'),
+			_('Default download mirror for Steven Black blocklists')
+		);
+		o.value('github');
+		o.value('sbc_io');
 
 		o = s.taboption(
 			'advanced',
